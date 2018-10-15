@@ -8,7 +8,7 @@
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
      Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logindb",
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:53137/logindb",
             "root", "root"); 
 /*     Connection con = dbclass.getConnection();
  */         
