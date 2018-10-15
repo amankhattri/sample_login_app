@@ -5,7 +5,7 @@
     String userName = request.getParameter("uname");    
     String password = request.getParameter("password");
      Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/logindb",
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:53137/logindb",
         "root", "root"); 
         /* Connection con = dbclass.getConnection(); */
     Statement st = con.createStatement();
