@@ -5,7 +5,7 @@ name: Images Build and Scan
 on:
   push:
     branches:
-      - "pomeaas-1810" 
+      - "**"       
 
 jobs:
   printJob:    
