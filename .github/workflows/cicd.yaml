@@ -35,10 +35,12 @@ jobs:
 
       - name: List all changed files
         run: |
-          mkdir ./myfiles 
+          mkdir ~/myfiles 
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
-            cp $file ./myfiles
+            pwd
+            ls
+            cp $file ~/myfiles
           done
           echo "myfiles are : "
           ls ./myfiles
