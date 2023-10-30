@@ -1,0 +1,28 @@
+## Follow the repository's Code Tour for configuration. Threshold: 8%
+
+name: Images Build and Scan
+
+on:
+  push:
+    branches:
+      - "pomeaas-1810" 
+
+jobs:
+  printJob:    
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
+
+  brand_profile_upsert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          path: main
+ 
