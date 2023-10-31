@@ -31,7 +31,7 @@ jobs:
         with:
           path: main
           files: |
-             ./main/LoginWebApp/samplefolder/sample1/**
+             LoginWebApp/samplefolder/sample1/**
 
       - name: List all changed files
         run: |
