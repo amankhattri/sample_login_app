@@ -31,7 +31,7 @@ jobs:
         with:
           path: main
           files: |
-            **
+             ./main/gitops/edge-manager/local/**
 
       - name: List all changed files
         run: |
