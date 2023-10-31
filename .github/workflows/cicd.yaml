@@ -23,17 +23,24 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        # with:
-        #   path: main
+        with:
+          path: main
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v40
         with:
+          path: main
           files: |
-            **
+             ./main/LoginWebApp/samplefolder/sample1/**
 
       - name: List all changed files
         run: |
+          mkdir ~/myfiles 
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
+            pwd
+            ls
+            cp main/$file ~/myfiles
           done
+          echo "myfiles are : "
+          ls ~/myfiles
