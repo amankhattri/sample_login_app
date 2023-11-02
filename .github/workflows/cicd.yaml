@@ -44,7 +44,7 @@ jobs:
             ls
             cp main/$file ./main/${{ env.Directory }}/tmpFolder            
           done
-          for file in s${{ env.Directory }}/sample1/*.{jpg,jpeg,png,gif}; do  if [ -f "$file" ] ; then cp main/$file ./main/${{ env.Directory }}/tmpFolder ;echo "$file" ;fi ; done
+          for file in main/${{ env.Directory }}/sample1/*.{jpg,jpeg,png,gif}; do  if [ -f "$file" ] ; then cp main/$file ./main/${{ env.Directory }}/tmpFolder ;echo "$file" ;fi ; done
           ls
           pwd                 
           echo "myfiles are : "
