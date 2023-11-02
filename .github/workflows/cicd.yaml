@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - "**"       
+env:
+  Directory: "LoginWebApp/samplefolder"
 
 jobs:
   printJob:    
@@ -31,16 +33,23 @@ jobs:
         with:
           path: main
           files: |
-             LoginWebApp/samplefolder/sample1/**
+             ${{ env.Directory }}/sample1/**
 
       - name: List all changed files
         run: |
-          mkdir ~/myfiles 
+          mkdir ./main/${{ env.Directory }}/tmpFolder 
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
             pwd
             ls
-            cp main/$file ~/myfiles
+            cp main/$file ./main/${{ env.Directory }}/tmpFolder            
           done
+          for file in ${{ env.Directory }}/sample1/*.{jpg,jpeg,png,gif} do 
+            if [ -f "$file" ]; then 
+              cp main/$file ./main/${{ env.Directory }}/tmpFolder
+            fi  
+          done
+          ls
+          pwd                 
           echo "myfiles are : "
-          ls ~/myfiles
+          ls ./main/${{ env.Directory }}/tmpFolder
